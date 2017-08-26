@@ -84,6 +84,8 @@ OrderStatus = Enum(
     'OrderStatus', [
         'EXECUTION_COMPLETE',
         'EXECUTABLE',
+        'PENDING',
+        'EXPIRED',
     ]
 )
 
@@ -163,6 +165,10 @@ ExecutionReportErrorCode = Enum(
         'NO_ACTION_REQUIRED',
         'SERVICE_UNAVAILABLE',
         'REJECTED_BY_REGULATOR',
+        'NO_CHASING',
+        'REGULATOR_IS_NOT_AVAILABLE',
+        'TOO_MANY_INSTRUCTIONS',
+        'INVALID_MARKET_VERSION',
     ]
 )
 
@@ -204,6 +210,11 @@ InstructionReportErrorCode = Enum(
         'CANCELLED_NOT_PLACED',
         'RELATED_ACTION_FAILED',
         'NO_ACTION_REQUIRED',
+        'UNEXPECTED_PERSISTENCE_TYPE',
+        'INVALID_ORDER_TYPE',
+        'UNEXPECTED_MIN_FILL_SIZE',
+        'INVALID_CUSTOMER_ORDER_REF',
+        'INVALID_MIN_FILL_SIZE',
     ]
 )
 
@@ -234,6 +245,29 @@ BetStatus = Enum(
         'CANCELLED',
     ]
 )
+
+TimeInForce = Enum(
+    'TimeInForce', [
+        'FILL_OR_KILL',
+    ]
+)
+
+BetTargetType = Enum(
+    'BetTargetType', [
+        'BACKERS_PROFIT',
+        'PAYOUT',
+    ]
+)
+
+PriceLadderType = Enum(
+    'PriceLadderType', [
+        'CLASSIC',
+        'FINEST',
+        'LINE_RANGE',
+    ]
+)
+
+
 
 Exchange = Enum(
     'Exchange', [
