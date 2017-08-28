@@ -58,6 +58,7 @@ RunnerStatus = Enum(
     'RunnerStatus', [
         'ACTIVE',
         'WINNER',
+        'PLACED',
         'LOSER',
         'REMOVED_VACANT',
         'REMOVED',
