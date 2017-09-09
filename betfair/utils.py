@@ -6,7 +6,7 @@ import six
 import json
 import datetime
 import collections
-
+from time import sleep
 import enum
 import decorator
 from six.moves import http_client as httplib
@@ -119,6 +119,12 @@ def requires_login(func, *args, **kwargs):
     if instance variable `session_token` is absent.
     """
     self = args[0]
+    tries = 0
     if self.session_token:
-        return func(*args, **kwargs)
+        while tries < 3:
+            try:
+                return func(*args, **kwargs)
+            except ConnectionError:
+                sleep(1)
+                tries += 1
     raise exceptions.NotLoggedIn()
