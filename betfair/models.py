@@ -273,6 +273,7 @@ class PlaceInstruction(BetfairModel):
     limit_order = ModelType(LimitOrder)
     limit_on_close_order = ModelType(LimitOnCloseOrder)
     market_on_close_order = ModelType(MarketOnCloseOrder)
+    customer_order_ref = StringType()
 
 
 class CancelInstruction(BetfairModel):
@@ -313,7 +314,8 @@ class CurrentOrderSummary(BetfairModel):
     size_voided = FloatType()
     regulator_auth_code = StringType()
     regulator_code = StringType()
-
+    customer_order_ref = StringType()
+    customer_strategy_ref = StringType()
 
 class CurrentOrderSummaryReport(BetfairModel):
     current_orders = ListType(ModelType(CurrentOrderSummary), required=True)
