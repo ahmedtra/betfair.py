@@ -125,6 +125,6 @@ def requires_login(func, *args, **kwargs):
             try:
                 return func(*args, **kwargs)
             except ConnectionError:
-                sleep(1)
+                sleep(10)
                 tries += 1
     raise exceptions.NotLoggedIn()
